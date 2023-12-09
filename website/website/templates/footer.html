@@ -1,0 +1,62 @@
+{% load static %}
+<footer class="footer-cls card-center-cls">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-12 footer-div-cls card-center-cls sdvg">
+      <div class="row g-0 card-center-cls">
+        <div class="col-3">
+          <img src="{% static 'img/icon.PNG' %}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-9">
+          <div class="card-body">
+            <p class="nav-cls card-text">
+              Телефон: <br>8 (800) 550 38 38<br>
+              Почта: <br>
+              rectorat@dvfu.ru
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-12 footer-div-cls card-center-cls sdvg">
+      <div class="row g-0 card-center-cls">
+        <div class="col-3">
+          <img src="{% static 'img/icon1.png' %}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-9">
+          <div class="card-body">
+            <p class="card-text">
+              <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
+              <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
+              <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
+              <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
+              <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-12 footer-div-cls card-center-cls sdvg">
+      <div class="row g-0 card-center-cls">
+        <div class="col-3">
+          <img src="{% static 'img/icon1.png' %}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-9">
+          <div class="card-body">
+            <p class="card-text">
+              {% if user.is_authenticated %}
+                    <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'logout'%}?next={{request.path}}">Log out</a></div>
+              {% else %}
+                    <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'login'%}?next={{request.path}}">Log in</a></div>
+              {% endif %}
+              <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
+              <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
+              <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
+              <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
