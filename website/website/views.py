@@ -18,8 +18,12 @@ def news(request):
     return render(request, 'News/index.html')
 
 
-def docs(request):
+def quiz(request):
     return render(request, 'DZ/quiz.html')
+
+
+def subscribe(request):
+    return render(request, 'DZ/subscribe.html')
 
 
 def create_account(request):
@@ -40,7 +44,9 @@ def create_account(request):
             for num in numbers:
                 info.favorite_num.add(Numeral.objects.get(numeral=num))
             return render(request, 'registration/thx.html', {'first': form.cleaned_data['first_name'],
-                                                             'second': form.cleaned_data['second_name']})
+                                                             'second': form.cleaned_data['second_name'],
+                                                             'town': form.cleaned_data['town'],
+                                                             'phone': form.cleaned_data['phone']})
     else:
         form = CreateUserForm()
 
