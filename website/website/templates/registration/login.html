@@ -12,17 +12,6 @@
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static '/login_static/css/login_style.css' %}" type="text/css" media="all" />
 
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myInput");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-    </script>
-
 </head>
 
 <body>
@@ -34,7 +23,7 @@
             <div class="w3l-form-info">
                 <div class="w3_info">
                     <h2>вход в систему</h2>
-                    <form action="#" method="post">
+                    <form action="" method="post">
 
                         {% csrf_token %}
 
