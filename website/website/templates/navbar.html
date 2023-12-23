@@ -12,9 +12,16 @@
           <li class="nav-item">
             <a class="nav-link active white-link" aria-current="page" href="{% url 'news'%}">Новости</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active white-link" aria-current="page" href="{% url 'docs'%}">Документы</a>
-          </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active white-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Задания
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'docs'%}">Опрос</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
         </ul>
       </div>
     </div>

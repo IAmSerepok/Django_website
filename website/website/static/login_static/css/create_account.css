@@ -79,7 +79,7 @@ a {
 
 
 body {
-    background: #f1f1f1;
+    background: lightsteelblue !important;
     margin: 0;
     padding: 0;
 }
@@ -110,11 +110,9 @@ input[type="Password"] {
     font-weight: 500;
     color: black;
     text-align: left;
-    padding: 14px 15px 12px 35px;
     width: 100%;
     display: inline-block;
     box-sizing: border-box;
-    border: none;
     outline: none;
     background: transparent;
     letter-spacing: .5px;

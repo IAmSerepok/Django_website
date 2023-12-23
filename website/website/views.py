@@ -19,7 +19,7 @@ def news(request):
 
 
 def docs(request):
-    return render(request, 'Documents/index.html')
+    return render(request, 'DZ/quiz.html')
 
 
 def create_account(request):

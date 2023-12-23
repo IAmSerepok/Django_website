@@ -11,6 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static '/login_static/css/login_style.css' %}" type="text/css" media="all" />
+    <!--include bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </head>
 
@@ -40,7 +43,7 @@
                             {{ form.password }}
                         </div>
                         <button class="btn btn-primary btn-block" type="submit">вход</button><br>
-                        <div class="col-12"><a class="reg-cls nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'reg' %}">Нет аккаунта? Зарегистрируйтесь!</a></div>
+                        <div class="col-12"><a class="reg-cls nav-cls link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{% url 'reg' %}">Нет аккаунта? Зарегистрируйтесь!</a></div>
                     </form>
 
                     

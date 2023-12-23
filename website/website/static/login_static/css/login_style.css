@@ -79,7 +79,7 @@ a {
 
 
 body {
-    background: #f1f1f1;
+    background: lightsteelblue !important;
     margin: 0;
     padding: 0;
 }
@@ -495,7 +495,6 @@ p.continue span:after {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    color: dimgray;
 }
 
 /*-- //form styling --*/

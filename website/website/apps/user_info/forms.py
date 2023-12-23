@@ -4,24 +4,69 @@ from django.contrib.auth.models import User
 
 
 class CreateUserForm(forms.Form):
-    user_name = forms.CharField(help_text="Введите имя аккаунта", required=True)
-    password = forms.CharField(help_text="Введите пароль", required=True, widget=forms.PasswordInput)
-    password_repeat = forms.CharField(help_text="Введите пароль еще раз", required=True, widget=forms.PasswordInput)
-    first_name = forms.CharField(help_text="Введите имя", required=True)
-    second_name = forms.CharField(help_text="Введите фамилию", required=True)
-    mail = forms.EmailField(help_text="Введите почту", required=True)
-    town = forms.CharField(help_text="Из какого вы города?", required=True)
-    phone = forms.CharField(help_text="Введите номер телефона", required=True)
+    user_name = forms.CharField(help_text="Введите имя аккаунта", required=True,
+                            widget=forms.TextInput(
+                                attrs={
+                                    'class': "form-control",
+                                }
+                            ))
+    password = forms.CharField(help_text="Введите пароль", required=True,
+                            widget=forms.TextInput(
+                                attrs={
+                                    'class': "form-control",
+                                }
+                            ))
+    password_repeat = forms.CharField(help_text="Введите пароль еще раз", required=True,
+                            widget=forms.TextInput(
+                                attrs={
+                                    'class': "form-control",
+                                }
+                            ))
+    first_name = forms.CharField(help_text="Введите имя", required=True,
+                            widget=forms.TextInput(
+                                attrs={
+                                    'class': "form-control",
+                                }
+                            ))
+    second_name = forms.CharField(help_text="Введите фамилию", required=True,
+                            widget=forms.TextInput(
+                                attrs={
+                                    'class': "form-control",
+                                }
+                            ))
+    mail = forms.EmailField(help_text="Введите почту", required=True,
+                            widget=forms.TextInput(
+                                attrs={
+                                    'class': "form-control",
+                                }
+                            ))
+    town = forms.CharField(help_text="Из какого вы города?", required=True,
+                            widget=forms.TextInput(
+                                attrs={
+                                    'class': "form-control",
+                                }
+                            ))
+    phone = forms.CharField(help_text="Введите номер телефона", required=True,
+                            widget=forms.TextInput(
+                                attrs={
+                                    'class': "form-control",
+                                }
+                            ))
     program_name = forms.ChoiceField(help_text="Введите номер телефона", required=True,
                                      choices=[
                                          ('pmi', 'Прикладная математика и информатика'),
                                          ('mkn', 'Математика и компьютерные науки'),
                                          ('pi', 'Прикладная информатика'),
                                          ('ib', 'Информационная безопасность')
-                                     ])
+                                     ],
+                                     widget=forms.Select(
+                                         attrs={
+                                             'class': "form-control",
+                                         }
+                                     ))
     favorite_numbers = forms.MultipleChoiceField(
         required=False,
-        widget=forms.CheckboxSelectMultiple,
+        widget=forms.CheckboxSelectMultiple(attrs={}),
         choices=[
             ('1', '1'), ('2', '2'), ('e', 'e'), ('3', '3'),
             ('π', 'π'), ('4', '4'), ('5', '5'), ('6', '6'),
