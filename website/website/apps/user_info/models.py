@@ -11,8 +11,8 @@ class Numeral(models.Model):
 
 
 class UserInfo(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    program = models.ForeignKey(StudyingProgram, on_delete=models.DO_NOTHING)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    program = models.ForeignKey(StudyingProgram, null=True, on_delete=models.DO_NOTHING)
     favorite_num = models.ManyToManyField(Numeral)
     town = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=10)
