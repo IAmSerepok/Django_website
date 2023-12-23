@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from website.apps.user_info.models import UserInfo, Numeral, StudyingProgram
+from website.apps.user_info.models import (Numeral, StudyingProgram,
+                                           UserInfo, Chanel)
 from website.apps.user_info.forms import CreateUserForm
 from django.contrib.auth import login
 from django.http import JsonResponse
@@ -8,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 import json
 from django.views import View
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -22,8 +24,16 @@ def quiz(request):
     return render(request, 'DZ/quiz.html')
 
 
+@login_required
 def subscribe(request):
-    return render(request, 'DZ/subscribe.html')
+    res = []
+    list = Chanel.objects.filter(userinfo=UserInfo.objects.get(user_id=request.user.id).id)
+    for obj in Chanel.objects.all():
+        if list.filter(id=obj.id).count():
+            res.append((obj.name, obj.id, True))
+        else:
+            res.append((obj.name, obj.id, False))
+    return render(request, 'DZ/subscribe.html', {'chanels': res})
 
 
 def create_account(request):

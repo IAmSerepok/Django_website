@@ -138,3 +138,17 @@ p, h1, h2, h3, h4, h5, h6, strong, em, ul, li{
 .sdvg{
   padding-left: 5em;
 }
+.my-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ghostwhite;
+  font-size: large;
+  font-weight: bold;
+}
+.my-plate{
+  margin: 0.5em;
+  padding: 0.25em;
+  background: #459dff;
+  border-radius: 1.5em;
+}
