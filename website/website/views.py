@@ -1,10 +1,12 @@
+import os
+
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from website.apps.user_info.models import (Numeral, StudyingProgram,
-                                           UserInfo, Chanel)
+                                           UserInfo, Subscribe)
 from website.apps.user_info.forms import CreateUserForm
 from django.contrib.auth import login
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 import json
@@ -20,20 +22,13 @@ def news(request):
     return render(request, 'News/index.html')
 
 
+@login_required
 def quiz(request):
     return render(request, 'DZ/quiz.html')
 
 
-@login_required
 def subscribe(request):
-    res = []
-    list = Chanel.objects.filter(userinfo=UserInfo.objects.get(user_id=request.user.id).id)
-    for obj in Chanel.objects.all():
-        if list.filter(id=obj.id).count():
-            res.append((obj.name, obj.id, True))
-        else:
-            res.append((obj.name, obj.id, False))
-    return render(request, 'DZ/subscribe.html', {'chanels': res})
+    return render(request, 'DZ/subscribe.html')
 
 
 def create_account(request):
@@ -61,3 +56,33 @@ def create_account(request):
         form = CreateUserForm()
 
     return render(request, 'registration/create_account.html', {'form': form})
+
+
+@require_POST
+@csrf_exempt
+def save(request):
+    text = request.POST.get('text')
+
+    obj = Subscribe(mail=text)
+    obj.save()
+
+    response_data = {'message': 'Данные успешно обработаны'}
+    return JsonResponse(response_data)
+
+
+@require_POST
+@csrf_exempt
+def save_quiz(request):
+    text = request.POST.get('text')
+
+    obj = Subscribe(mail=text)
+    obj.save()
+
+    response_data = {'message': 'Данные успешно обработаны'}
+    return JsonResponse(response_data)
+
+
+def get_statistic(request):
+    # Получение данных, например, из модели
+    data = {'name': 'John', 'age': 30}
+    return JsonResponse(data)

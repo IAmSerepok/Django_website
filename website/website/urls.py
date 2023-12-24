@@ -27,6 +27,9 @@ urlpatterns = [
     path('Subscribe', views.subscribe, name='subscribe'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('create_accout/', views.create_account, name='reg'),
+    path('save/', views.save, name='subscribe_submit'),
+    path('save_quiz/', views.save_quiz, name='quiz_submit'),
+    path('statistic/', views.get_statistic, name='statistic'),
 ]
 
 if settings.DEBUG:

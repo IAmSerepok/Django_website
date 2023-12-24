@@ -45,7 +45,7 @@
           <div class="card-body">
             <p class="card-text">
               {% if user.is_authenticated %}
-                    <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'logout'%}?next={{request.path}}">Log out</a></div>
+                    <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'logout'%}?next={% url 'main' %}">Log out</a></div>
               {% else %}
                     <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'login'%}?next={{request.path}}">Log in</a></div>
               {% endif %}

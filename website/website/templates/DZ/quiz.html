@@ -31,56 +31,131 @@
     <body>
     {% include "navbar.html" %}
 
-    <select class="form-select" aria-label="Пример выбора по умолчанию">
-      <option selected>Откройте это меню выбора</option>
-      <option value="1">Один</option>
-      <option value="2">Два</option>
-      <option value="3">Три</option>
-    </select>
-    <form>
-        <div class="form-check">
-          <label class="form-check-label" for="flexCheckDefault1">
-            Флажок по умолчанию
-          </label>
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+    <div class="row my-center-sub my-container-quiz" id="quiz-questions">
+        <div class="my-container-sub1 col-12">
+            <input type="text" class="form-control my-good-inp" id="my-name" placeholder="Введите своё имя">
         </div>
-        <div class="form-check">
-          <label class="form-check-label" for="flexCheckDefault2">
-            Флажок по умолчанию
-          </label>
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+
+        <div class="my-container-sub">
+            <div class="my-center-sub">
+                <img alt="prog" src="{% static 'img/row.jpg' %}" class="my-good-img col-8">
+            </div>
+            <div class="my-center-sub">
+                <select class="form-select" aria-label="Пример выбора по умолчанию">
+                  <option value="1">Это великолепно!</option>
+                  <option value="2">WTF?</option>
+                </select>
+            </div>
         </div>
-    </form>
-    <form>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Радио по умолчанию
-          </label>
+
+        <div class="my-container-sub">
+            <div class="row">
+                <h2 class="my-h-sub">Какой ваш любимый ЯП?</h2>
+                <div class="col-6">
+                    <img alt="prog" src="{% static 'img/1С++.png' %}" class="my-good-c col-8">
+                </div>
+                <div class="col-6 my-center-sub my-text">
+                    <form>
+                        <div class="form-check">
+                          <label class="form-check-label" for="flexCheckDefault1">
+                            C
+                          </label>
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label" for="flexCheckDefault2">
+                            C++
+                          </label>
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label" for="flexCheckDefault2">
+                            1C
+                          </label>
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label" for="flexCheckDefault2">
+                            ++C
+                          </label>
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-          <label class="form-check-label" for="flexRadioDefault2">
-            Радио по умолчанию
-          </label>
+
+        <div class="my-container-sub">
+            <form>
+                <h2 class="my-h-sub">Выберите</h2>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                      <img alt="prog" src="{% static 'img/MATHhub.png' %}" class="my-good-hub col-10">
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                      <img alt="prog" src="{% static 'img/tag.jpg' %}" class="my-good-tag col-12">
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                  <label class="form-check-label" for="flexRadioDefault3">
+                      <img alt="prog" src="{% static 'img/FlutterAchivment.png' %}" class="my-good-as col-12">
+                  </label>
+                </div>
+            </form>
         </div>
-    </form>
-    <form>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Радио по умолчанию
-          </label>
+
+        <div class="my-container-sub1 col-12">
+            <button type="button" onclick="result()" class="btn btn-outline-primary col-12 my-good-inp">Перейти к результатам</button>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-          <label class="form-check-label" for="flexRadioDefault2">
-            Радио по умолчанию
-          </label>
-        </div>
-    </form>
+    </div>
+
+    <script>
+        function result(){
+            // получение данных
+
+            $.ajax({
+                type: "POST",
+                url: "{% url 'quiz_submit' %}",
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    // Обработка успешного ответа от сервера
+                    console.log(response);
+                    // Скрытие элементов
+                    document.getElementById("button-inp").style.display = "none";
+                    document.getElementById("mail-inp").style.display = "none";
+                    document.getElementById("thx-id").style.display = "block";
+                },
+                error: function(error) {
+                    // Обработка ошибки
+                    console.log(error);
+                }
+            });
+
+            $.ajax({
+                url: '{% url 'statistic' %}', // URL вашего представления
+                type: 'GET',
+                success: function(response) {
+                    my_name = document.getElementById('my-name');
+                    my_name.value = response['name'];
+                    console.log(response);
+                }
+            });
+        }
+    </script>
 
     </body>
     {% include "footer.html" %}
+
+    <!-- Javascript Inc-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
 
 {% endblock %}

@@ -152,3 +152,100 @@ p, h1, h2, h3, h4, h5, h6, strong, em, ul, li{
   background: #459dff;
   border-radius: 1.5em;
 }
+.my-container{
+  height: 600px;
+  background: black;
+  border-radius: 3em;
+  margin: 2em;
+}
+.my-h{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ghostwhite;
+  font-size: 7em;
+  font-weight: bold;
+}
+.my-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  border: none;
+  color: whitesmoke;
+  font-size: 4em;
+  border-radius: 1em;
+}
+.my-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  border: none;
+  color: whitesmoke;
+  font-size: 2em;
+  border-radius: 1em;
+}
+.my-thx{
+  font-size: 2em !important;
+}
+.my-good-img{
+  border-radius: 2em;
+  padding: 0.8em;
+}
+.my-container-quiz{
+  background: #05295b;
+  border-radius: 3em;
+  margin: 2em;
+  padding: 2em;
+}
+.my-container-sub{
+  background: #a8cdff;
+  border-radius: 3em;
+  margin: 1em;
+  padding: 1em;
+}
+.my-container-sub1{
+  background: #a8cdff;
+  border-radius: 3em;
+  margin: 1em;
+  padding: 0.2em;
+}
+.my-center-sub{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ghostwhite;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.my-good-c{
+  border-radius: 2em;
+  padding: 0.8em;
+}
+.my-h-sub{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ghostwhite;
+  font-size: 2em;
+  font-weight: bold;
+}
+.my-good-hub{
+  border-radius: 2em;
+  padding: 0.8em;
+}
+.my-good-tag{
+  padding: 0.8em;
+}
+.my-good-as{
+  border-radius: 20em;
+  padding: 0.8em;
+}
+.my-good-inp{
+  border-radius: 20em;
+  padding: 0.8em;
+}
+.my-text{
+  font-size: 3.5em;
+}
