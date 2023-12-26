@@ -36,45 +36,20 @@
                     <div class="form-floating col-10" id="mail-inp">
                         <input type="email" class="my-form col-12" id="floatingInput" placeholder="name@example.com" required>
                     </div>
+            <div class="my-div2"></div>
                     <button class="my-button col-11" id="button-inp" onclick="subscribe()">Подписаться на новостную рассылку</button>
-            <div class="col-8 my-center my-thx" id="thx-id">
+            <div class="col-8 my-center my-thx" id="thx-id" style="display: none">
                 <p class="my-center my-thx">Спасибо за подписку</p>
             </div>
         </div>
     </form>
 
     <script>
-        // Hide elements on page
-        document.getElementById("thx-id").style.display = "none";
         function subscribe(){
-            let text = document.getElementById("floatingInput").value;
-            let data = new FormData();
-            data.append('text', text);
-            let validator = /\S+@\S+\.\S+/;
-            if (validator.test(text)){
-                event.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'subscribe_submit' %}",
-                    data: data,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        // Обработка успешного ответа от сервера
-                        console.log(response);
-                        // Hide elements on successful response
-                        document.getElementById("button-inp").style.display = "none";
-                        document.getElementById("mail-inp").style.display = "none";
-                        document.getElementById("thx-id").style.display = "block";
-                    },
-                    error: function(error) {
-                        // Обработка ошибки
-                        console.log(error);
-                    }
-                });
-            }
-		}
-	</script>
+            subscribe_call();
+        }
+    </script>
+
     <!-- Javascript Inc-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>

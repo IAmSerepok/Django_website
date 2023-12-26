@@ -146,6 +146,9 @@ p, h1, h2, h3, h4, h5, h6, strong, em, ul, li{
   font-size: large;
   font-weight: bold;
 }
+.my-div2{
+  height: 1em;
+}
 .my-plate{
   margin: 0.5em;
   padding: 0.25em;
@@ -153,7 +156,6 @@ p, h1, h2, h3, h4, h5, h6, strong, em, ul, li{
   border-radius: 1.5em;
 }
 .my-container{
-  height: 600px;
   background: black;
   border-radius: 3em;
   margin: 2em;
