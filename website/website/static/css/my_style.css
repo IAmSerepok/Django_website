@@ -207,7 +207,7 @@ p, h1, h2, h3, h4, h5, h6, strong, em, ul, li{
 }
 .my-container-sub1{
   background: #a8cdff;
-  border-radius: 3em;
+  border-radius: 1.5em;
   margin: 1em;
   padding: 0.2em;
 }
@@ -248,4 +248,7 @@ p, h1, h2, h3, h4, h5, h6, strong, em, ul, li{
 }
 .my-text{
   font-size: 3.5em;
+}
+.pad-cls{
+  margin: 0.4em;
 }

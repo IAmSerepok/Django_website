@@ -1,9 +1,8 @@
 import os
-
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from website.apps.user_info.models import (Numeral, StudyingProgram,
-                                           UserInfo, Subscribe)
+                                           UserInfo, Subscribe, Quiz, Language)
 from website.apps.user_info.forms import CreateUserForm
 from django.contrib.auth import login
 from django.http import JsonResponse, HttpResponse
@@ -22,7 +21,6 @@ def news(request):
     return render(request, 'News/index.html')
 
 
-@login_required
 def quiz(request):
     return render(request, 'DZ/quiz.html')
 
@@ -73,16 +71,56 @@ def save(request):
 @require_POST
 @csrf_exempt
 def save_quiz(request):
-    text = request.POST.get('text')
+    name = request.POST.get('name')
+    good_program = request.POST.get('my_good_program')
+    favorite_png = request.POST.get('favorite_png')
 
-    obj = Subscribe(mail=text)
+    obj = Quiz(name=name, good_program=good_program,
+               favorite_picture=favorite_png)
     obj.save()
+
+    for i in range(5):
+        if request.POST.get('favorite' + str(i+1)) == '1':
+            obj.language.add(Language.objects.get(id=i+1))
 
     response_data = {'message': 'Данные успешно обработаны'}
     return JsonResponse(response_data)
 
 
 def get_statistic(request):
-    # Получение данных, например, из модели
-    data = {'name': 'John', 'age': 30}
+    # Получение данных
+    count_of_people = 0
+    good_program = [0, 0]
+    favorite_picture = [0, 0, 0]
+    language = [0, 0, 0, 0, 0]
+
+    for obj in Quiz.objects.values():
+
+        count_of_people += 1
+
+        if obj['good_program'] == 'good':
+            good_program[0] += 1
+        else:
+            good_program[1] += 1
+
+        favorite_picture[int(obj['favorite_picture'])-1] += 1
+
+    for obj in Quiz.objects.all():
+        for sub in obj.language.values():
+            language[sub['id']-1] += 1
+
+    good_program_res = [int(100*good_program[0]/count_of_people),
+                        int(100*good_program[1]/count_of_people)]
+    favorite_picture_res = [int(100*favorite_picture[0]/count_of_people),
+                            int(100*favorite_picture[1]/count_of_people),
+                            int(100*favorite_picture[2]/count_of_people)]
+    language_res = [int(100*language[0]/count_of_people),
+                    int(100*language[1]/count_of_people),
+                    int(100*language[2]/count_of_people),
+                    int(100*language[3]/count_of_people),
+                    int(100*language[4]/count_of_people)]
+
+    data = {'program': good_program_res,
+            'favorite': favorite_picture_res,
+            'language': language_res}
     return JsonResponse(data)

@@ -22,9 +22,12 @@ class Subscribe(models.Model):
     mail = models.CharField(max_length=20)
 
 
-class Quiz(models.Model):
-    pass
-
-
 class Language(models.Model):
     name = models.CharField(max_length=10)
+
+
+class Quiz(models.Model):
+    name = models.CharField(max_length=50)
+    good_program = models.CharField(max_length=20, null=True)
+    language = models.ManyToManyField(Language)
+    favorite_picture = models.IntegerField()
