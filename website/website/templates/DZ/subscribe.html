@@ -30,14 +30,14 @@
     </header>
     <body>
     {% include "navbar.html" %}
-    <form>
-        <div class="row my-center my-container" style="background: url({% static 'img/digital.png' %}) no-repeat center; padding: 2em;">
-            <div><h1 class="my-h">RUSSKY DIGITAL</h1></div>
-                    <div class="form-floating col-10" id="mail-inp">
-                        <input type="email" class="my-form col-12" id="floatingInput" placeholder="name@example.com" required>
-                    </div>
-            <div class="my-div2"></div>
-                    <button class="my-button col-11" id="button-inp" onclick="subscribe()">Подписаться на новостную рассылку</button>
+    <form style="margin: 1.5em 0">
+        <div class="row my-center my-container-subs" style="background: url({% static 'img/digital.png' %}) center">
+            <div class="my-center123"><h1 class="my-h">RUSSKY DIGITAL</h1></div>
+            <div class="form-floating col-10" id="mail-inp">
+                <input type="email" class="my-form col-12" id="floatingInput" placeholder="name@example.com" required>
+            </div>
+            <div style="height: 1em"></div>
+            <button class="my-button col-11" id="button-inp" onclick="subscribe()">Подписаться на новостную рассылку</button>
             <div class="col-8 my-center my-thx" id="thx-id" style="display: none">
                 <p class="my-center my-thx">Спасибо за подписку</p>
             </div>

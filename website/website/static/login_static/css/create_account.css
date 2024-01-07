@@ -204,7 +204,7 @@ h1 {
 .w3_info {
     box-sizing: border-box;
     padding: 3em 3.5em;
-    width: 450px;
+    width: 850px;
     background: #fff;
     box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.1);
 }
@@ -495,5 +495,13 @@ p.continue span:after {
     justify-content: flex-end;
     color: dimgray;
 }
-
+.my-h2{
+    display: block;
+    margin-left: 34%;
+}
+.my-center-sub{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*-- //form styling --*/

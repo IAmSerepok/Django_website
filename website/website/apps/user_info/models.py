@@ -16,18 +16,19 @@ class UserInfo(models.Model):
     favorite_num = models.ManyToManyField(Numeral)
     town = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=10)
+    third_name = models.CharField(max_length=50, null=True)
 
 
 class Subscribe(models.Model):
     mail = models.CharField(max_length=20)
 
 
-class Language(models.Model):
+class Question(models.Model):
     name = models.CharField(max_length=10)
 
 
 class Quiz(models.Model):
-    name = models.CharField(max_length=50)
-    good_program = models.CharField(max_length=20, null=True)
-    language = models.ManyToManyField(Language)
-    favorite_picture = models.IntegerField()
+    school = models.CharField(max_length=50, null=True)
+    type = models.CharField(max_length=20, null=True)
+    form = models.CharField(max_length=20, null=True)
+    answer = models.ManyToManyField(Question)

@@ -203,28 +203,98 @@
 
 <body>
     <div class="signinform">
-
         <!-- container -->
-        <div class="container">
+        <div class="container my-center-sub">
             <!-- main content -->
             <div class="w3l-form-info">
                 <div class="w3_info">
-                    <h2>регистрация</h2>
-                    <form action="" method="POST">
+                    <h2 class="my-h2">РЕГИСТРАЦИЯ</h2>
+                    <form class="row" action="" method="POST">
                         {% csrf_token %}
-                        <div>
-                        {% for field in form %}
-                        <div>
-                            {{field.label_tag}}
-                            <div>{{field}}</div><br>
-                            <div class="error">{{field.errors}}</div>
+                        <div class="col-6">
+                            <div>
+                                <div>
+                                    {{form.user_name.label_tag}}
+                                    <div>{{form.user_name}}</div><br>
+                                    <div class="error">{{form.user_name.errors}}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    {{form.password.label_tag}}
+                                    <div>{{form.password}}</div><br>
+                                    <div class="error">{{form.password.errors}}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    {{form.password_repeat.label_tag}}
+                                    <div>{{form.password_repeat}}</div><br>
+                                    <div class="error">{{form.password_repeat.errors}}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    {{form.mail.label_tag}}
+                                    <div>{{form.mail}}</div><br>
+                                    <div class="error">{{form.mail.errors}}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    {{form.town.label_tag}}
+                                    <div>{{form.town}}</div><br>
+                                    <div class="error">{{form.town.errors}}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    {{form.phone.label_tag}}
+                                    <div>{{form.phone}}</div><br>
+                                    <div class="error">{{form.phone.errors}}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    {{form.program_name.label_tag}}
+                                    <div>{{form.program_name}}</div><br>
+                                    <div class="error">{{form.program_name.errors}}</div>
+                                </div>
+                            </div>
                         </div>
-                        {% endfor %}
+                        <div class="col-6">
+                            <div>
+                                <div>
+                                    {{form.first_name.label_tag}}
+                                    <div>{{form.first_name}}</div><br>
+                                    <div class="error">{{form.first_name.errors}}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    {{form.second_name.label_tag}}
+                                    <div>{{form.second_name}}</div><br>
+                                    <div class="error">{{form.second_name.errors}}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    {{form.third_name.label_tag}}
+                                    <div>{{form.third_name}}</div><br>
+                                    <div class="error">{{form.third_name.errors}}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    {{form.favorite_numbers.label_tag}}
+                                    <div>{{form.favorite_numbers}}</div><br>
+                                    <div class="error">{{form.favorite_numbers.errors}}</div>
+                                </div>
+                            </div>
                         </div>
-                        <button class="btn btn-primary btn-block" type="submit">зарегистрироваться</button><br>
+                        <button class="btn btn-primary btn-block col-6" type="submit">зарегистрироваться</button><br>
                         <div class="col-12"><a class="reg-cls nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" style="color: darkgray !important;" href="{% url 'login' %}">Уже есть аккаунт? Вход</a></div>
                     </form>
-                    
                 </div>
             </div>
             <!-- //main content -->
@@ -239,9 +309,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function(){
+        if({{ first }} == 1){
+            $(document).ready(function(){
             $("#myModal").modal('show');
         });
+        }
     </script>
 </body>
 

@@ -31,131 +31,195 @@
     <body>
     {% include "navbar.html" %}
 
-    <div class="row my-center-sub my-container-quiz" id="quiz-questions">
-        <div id='my-container-1' class="my-container-sub1 col-12">
-            <input type="text" class="form-control my-good-inp" id="my-name" placeholder="Введите своё имя">
-        </div>
-
-        <div id='my-container-2' class="my-container-sub">
-            <div class="my-center-sub">
-                <img alt="prog" src="{% static 'img/row.jpg' %}" class="my-good-img col-8">
-            </div>
-            <div class="my-center-sub">
-                <select class="form-select" id="my-good-program-select">
-                  <option value="good">Это великолепно!</option>
-                  <option value="bad">WTF?</option>
+    <div class="row quiz-center my-container-quiz shadow p-3 mb-5 bg-body-tertiary" id="quiz-block1">
+        <div id="sub-block1">
+            <form class="quiz-form">
+                <p>Из какой вы школы/института ДВФУ?</p>
+                <select class="form-select" aria-label="Пример выбора по умолчанию" id="my-program">
+                  <option value="ИМКТ">Институт математики и компьютерных технологий</option>
+                  <option value="ПИ">Политехнический институт</option>
+                  <option value="Восток">Восточный институт</option>
+                  <option value="ЮШ">Юридическая школа</option>
+                  <option value="ШЭМ">Школа экономики и менеджмента</option>
+                  <option value="Мед">Школа медицины</option>
                 </select>
-            </div>
-        </div>
-
-        <div id='my-container-3' class="my-container-sub">
-            <div class="row">
-                <h2 class="my-h-sub">Какой ваш любимый ЯП?</h2>
-                <div class="col-6">
-                    <img alt="prog" src="{% static 'img/1С++.png' %}" class="my-good-c col-8">
-                </div>
-                <div class="col-6 my-center-sub my-text">
-                    <form>
-                        <div class="form-check">
-                          <label class="form-check-label" for="flexCheckDefault1">
-                            C
-                          </label>
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-                        </div>
-                        <div class="form-check">
-                          <label class="form-check-label" for="flexCheckDefault2">
-                            C++
-                          </label>
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                        </div>
-                        <div class="form-check">
-                          <label class="form-check-label" for="flexCheckDefault3">
-                            C#
-                          </label>
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-                        </div>
-                        <div class="form-check">
-                          <label class="form-check-label" for="flexCheckDefault4">
-                            1C
-                          </label>
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-                        </div>
-                        <div class="form-check">
-                          <label class="form-check-label" for="flexCheckDefault5">
-                            ++C
-                          </label>
-                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div id='my-container-4' class="my-container-sub">
-            <form>
-                <h2 class="my-h-sub" id="my-h-id">Выберите</h2>
+            </form>
+            <form class="quiz-form">
+                <p>Форма обучения:</p>
+                <select class="form-select" aria-label="Пример выбора по умолчанию" id="my-form-program">
+                  <option value="Бакалавриат">Бакалавриат/специалитет</option>
+                  <option value="Магистратура">Магистратура</option>
+                  <option value="Аспирантура">Аспирантура</option>
+                </select>
+                <br>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                  <label class="form-check-label" for="flexRadioDefault1">
-                      <img alt="prog" src="{% static 'img/MATHhub.png' %}" class="my-good-hub col-10">
+                    <input class="form-check-input" type="radio" name="firstRadioGroup" id="firstRadioDefault1" checked>
+                    <label class="form-check-label" for="firstRadioDefault1">
+                        Очно
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="firstRadioGroup" id="firstRadioDefault2">
+                    <label class="form-check-label" for="firstRadioDefault2">
+                        Заочно
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="firstRadioGroup" id="firstRadioDefault3">
+                    <label class="form-check-label" for="firstRadioDefault3">
+                        Очно-заочно
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="row"><div class="col-8"></div><button onclick="next1()" type="button" class="btn btn-secondary col-4">Продолжить</button></div>
+    </div>
+
+    <div class="row quiz-center my-container-quiz shadow p-3 mb-5 bg-body-tertiary" id="quiz-block2">
+        <div id="sub-block2">
+            <form class="quiz-form" id="my-quiz-form1">
+                <p>Выберите наиболее актуальные по вашему мнению существующие проблемы</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                  <label class="form-check-label" for="flexCheckDefault1">
+                    Плохо работающая система переселения
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                  <label class="form-check-label" for="flexRadioDefault2">
-                      <img alt="prog" src="{% static 'img/tag.jpg' %}" class="my-good-tag col-12">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                  <label class="form-check-label" for="flexCheckDefault2">
+                    Нехватка островных общежитий
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                  <label class="form-check-label" for="flexRadioDefault3">
-                      <img alt="prog" src="{% static 'img/FlutterAchivment.png' %}" class="my-good-as col-12">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                  <label class="form-check-label" for="flexCheckDefault3">
+                    Нехватка автобусов
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                  <label class="form-check-label" for="flexCheckDefault4">
+                    Несовершенная система РАУ
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+                  <label class="form-check-label" for="flexCheckDefault5">
+                    Низкое качество жизни в городских общежитиях
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+                  <label class="form-check-label" for="flexCheckDefault6">
+                    Отсутствие крытых мест для курения
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault7">
+                  <label class="form-check-label" for="flexCheckDefault7">
+                    Нехватка точек общественного питания
                   </label>
                 </div>
             </form>
         </div>
-
-        <div id='my-container-5' class="my-container-sub1 col-12">
-            <button type="button" onclick="result()" class="btn btn-outline-primary col-12 my-good-inp">Перейти к результатам</button>
-        </div>
-
-        <div id='my-container-6' class="my-container-sub col-12" style="display: none">
-            <div class="my-center-sub1 col-8"><h4>Программу оценили:</h4></div>
-            <div class="row">
-                <input class="col-6 my-good-inp" id="my-prog1" type="text" value="" readonly>
-                <input class="col-6 my-good-inp" id="my-prog2" type="text" value="" readonly>
-            </div>
-        </div>
-
-        <div id='my-container-7' class="my-container-sub my-center-sub row" style="display: none">
-            <h4>Языки програмирования выбрали:</h4>
-            <input class="col-8 my-good-inp pad-cls" id="my-lang1" type="text" value="" readonly>
-            <input class="col-8 my-good-inp pad-cls" id="my-lang2" type="text" value="" readonly>
-            <input class="col-8 my-good-inp pad-cls" id="my-lang3" type="text" value="" readonly>
-            <input class="col-8 my-good-inp pad-cls" id="my-lang4" type="text" value="" readonly>
-            <input class="col-8 my-good-inp pad-cls" id="my-lang5" type="text" value="" readonly>
-        </div>
-
-        <div id='my-container-8' class="my-container-sub my-center-sub row" style="display: none">
-            <h4>Картину выбрали:</h4>
-            <input class="col-8 my-good-inp pad-cls" id="my-img1" type="text" value="" readonly>
-            <input class="col-8 my-good-inp pad-cls" id="my-img2" type="text" value="" readonly>
-            <input class="col-8 my-good-inp pad-cls" id="my-img3" type="text" value="" readonly>
-        </div>
+        <div class="row" style="margin: 0 auto;"><div class="col-8"></div><button onclick="next2()" type="button" id="resultButton1" class="btn btn-primary col-4">К результатам</button></div>
     </div>
 
-    <script>
-        function result(){
-            get_result();
-        }
-    </script>
-
-    </body>
-    {% include "footer.html" %}
+    <div class="row quiz-center my-container-quiz shadow p-3 mb-5 bg-body-tertiary" id="quiz-block3">
+        <div id="sub-block3" class="row">
+            <div class="col-4 quiz-center" style="background-color: whitesmoke">
+                <p>Большинство опрошеных были студентами <span id="answ1"></span> обучающимеся на <span id="answ2"></span> по <span id="answ3"></span> форме обучения</p>
+            </div>
+            <div class="col-8">
+                <div class="row col-12 sub-quiz-div" style="background-color: whitesmoke">
+                    <div class="col-9">
+                        Плохо работающая система переселения
+                    </div>
+                    <div class="col-3">
+                        <input id="result1" class="form-control" type="text" value="100%" aria-label="" disabled readonly>
+                    </div>
+                </div>
+                <div class="row col-12 sub-quiz-div" style="background-color: whitesmoke">
+                    <div class="col-9">
+                        Нехватка островных общежитий
+                    </div>
+                    <div class="col-3">
+                        <input id="result2" class="form-control" type="text" value="100%" aria-label="" disabled readonly>
+                    </div>
+                </div>
+                <div class="row col-12 sub-quiz-div" style="background-color: whitesmoke">
+                    <div class="col-9">
+                        Нехватка автобусов
+                    </div>
+                    <div class="col-3">
+                        <input id="result3" class="form-control" type="text" value="100%" aria-label="" disabled readonly>
+                    </div>
+                </div>
+                <div class="row col-12 sub-quiz-div" style="background-color: whitesmoke">
+                    <div class="col-9">
+                        Несовершенная система РАУ
+                    </div>
+                    <div class="col-3">
+                        <input id="result4" class="form-control" type="text" value="100%" aria-label="" disabled readonly>
+                    </div>
+                </div>
+                <div class="row col-12 sub-quiz-div" style="background-color: whitesmoke">
+                    <div class="col-9">
+                        Низкое качество жизни в городских общежитиях
+                    </div>
+                    <div class="col-3">
+                        <input id="result5" class="form-control" type="text" value="100%" aria-label="" disabled readonly>
+                    </div>
+                </div>
+                <div class="row col-12 sub-quiz-div" style="background-color: whitesmoke">
+                    <div class="col-9">
+                        Отсутствие крытых мест для курения
+                    </div>
+                    <div class="col-3">
+                        <input id="result6" class="form-control" type="text" value="100%" aria-label="" disabled readonly>
+                    </div>
+                </div>
+                <div class="row col-12 sub-quiz-div" style="background-color: whitesmoke">
+                    <div class="col-9">
+                        Нехватка точек общественного питания
+                    </div>
+                    <div class="col-3">
+                        <input id="result7" class="form-control" type="text" value="100%" aria-label="" disabled readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Javascript Inc-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
 
+    <script>
+        document.getElementById('quiz-block1').style.display = 'block';
+        document.getElementById('quiz-block2').style.display = 'none';
+        document.getElementById('quiz-block3').style.display = 'none';
+
+        $(window).resize(function() {
+            set_size();
+        });
+        set_size();
+
+        function next1(){
+            document.getElementById('quiz-block1').style.display = 'none';
+            document.getElementById('quiz-block2').style.display = 'block';
+            document.getElementById('quiz-block3').style.display = 'none';
+        }
+        function next2(){
+            document.getElementById('quiz-block1').style.display = 'none';
+            document.getElementById('quiz-block2').style.display = 'none';
+            document.getElementById('quiz-block3').style.display = 'block';
+            get_result()
+        }
+    </script>
+
+    </body>
+    {% include "footer.html" %}
 {% endblock %}

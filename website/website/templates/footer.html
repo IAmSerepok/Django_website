@@ -1,6 +1,42 @@
 {% load static %}
+<!-- Модальное окно -->
+<div class="modal fade" style="background: url({% static 'img/digital.png' %}) no-repeat center;" id="subscribeModal" tabindex="-1" aria-labelledby="subscribe" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="subscribe">Подпишитесь на нашу новостную рассылку</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+          <form>
+            <div class="row my-center my-container">
+                <div><h1 class="my-h">RUSSKY DIGITAL</h1></div>
+                        <div class="form-floating col-10" id="mail-inp">
+                            <input type="email" class="my-form col-12" id="floatingInput" placeholder="name@example.com" required>
+                        </div>
+                <div class="my-div2"></div>
+                        <div class="col-8 my-center my-thx" id="thx-id" style="display: none">
+                    <p class="my-center my-thx">Спасибо за подписку</p>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary">Подписаться</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function subscribe(){
+        subscribe_call();
+    }
+</script>
+
 <footer class="footer-cls card-center-cls">
-  <div class="row">
+  <div class="row white-space">
     <div class="col-lg-4 col-md-4 col-12 footer-div-cls card-center-cls sdvg">
       <div class="row g-0 card-center-cls">
         <div class="col-3">
@@ -26,7 +62,11 @@
         <div class="col-9">
           <div class="card-body">
             <p class="card-text">
-              <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
+              {% if user.is_authenticated %}
+                    <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" data-bs-toggle="modal" data-bs-target="#exampleModal" href="">Опрос</a></div>
+              {% else %}
+                    <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{% url 'login'%}?next={{request.path}}">Опрос</a></div>
+              {% endif %}
               <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
               <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
               <div class="col-12"><a class="nav-cls link-light link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">Ссылка</a></div>
@@ -39,7 +79,7 @@
     <div class="col-lg-4 col-md-4 col-12 footer-div-cls card-center-cls sdvg">
       <div class="row g-0 card-center-cls">
         <div class="col-3">
-          <img src="{% static 'img/icon1.png' %}" class="img-fluid rounded-start" alt="...">
+          <img src="{% static 'img/icon2.png' %}" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-9">
           <div class="card-body">
@@ -60,6 +100,7 @@
     </div>
   </div>
 </footer>
+
 {#    <!-- Javascript Inc-->#}
 {#    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>#}
 {#    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>#}
