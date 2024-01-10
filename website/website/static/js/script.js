@@ -105,6 +105,10 @@ function get_result() {
                         document.getElementById('result' + i.toString()).value = response['percent'][i - 1].toString() + '%';
                     }
 
+                    document.getElementById('quiz-block1').style.display = 'none';
+                    document.getElementById('quiz-block2').style.display = 'none';
+                    document.getElementById('quiz-block3').style.display = 'block';
+
                     console.log(response);
                 }
             });

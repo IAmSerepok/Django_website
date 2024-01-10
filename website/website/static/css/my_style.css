@@ -315,3 +315,20 @@ p, h1, h2, h3, h4, h5, h6, strong, em, ul, li{
   margin: 0.4em;
   padding: 0.3em;
 }
+.my-button-quiz{
+  @media (min-width: 1200px) {
+    font-size: 20px !important;
+  }
+  @media (max-width: 1200px) {
+    font-size: 16px !important;
+  }
+  @media (max-width: 776px) {
+    font-size: 11px !important;
+  }
+}
+.my-pls-text{
+  font-size: 13px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}

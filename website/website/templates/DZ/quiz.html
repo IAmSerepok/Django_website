@@ -33,6 +33,7 @@
 
     <div class="row quiz-center my-container-quiz shadow p-3 mb-5 bg-body-tertiary" id="quiz-block1">
         <div id="sub-block1">
+            <div class="row col-12 sub-quiz-div">
             <form class="quiz-form">
                 <p>Из какой вы школы/института ДВФУ?</p>
                 <select class="form-select" aria-label="Пример выбора по умолчанию" id="my-program">
@@ -71,12 +72,14 @@
                     </label>
                 </div>
             </form>
+            </div>
         </div>
-        <div class="row"><div class="col-8"></div><button onclick="next1()" type="button" class="btn btn-secondary col-4">Продолжить</button></div>
+        <div class="row col-12" style="margin: 0 auto;"><button onclick="next1()" type="button" class="my-button-quiz col-12 btn btn-secondary col-4">Продолжить</button></div>
     </div>
 
     <div class="row quiz-center my-container-quiz shadow p-3 mb-5 bg-body-tertiary" id="quiz-block2">
         <div id="sub-block2">
+            <div class="row col-12 sub-quiz-div">
             <form class="quiz-form" id="my-quiz-form1">
                 <p>Выберите наиболее актуальные по вашему мнению существующие проблемы</p>
                 <div class="form-check">
@@ -122,16 +125,14 @@
                   </label>
                 </div>
             </form>
+            </div>
         </div>
-        <div class="row" style="margin: 0 auto;"><div class="col-8"></div><button onclick="next2()" type="button" id="resultButton1" class="btn btn-primary col-4">К результатам</button></div>
+        <div class="row col-12" style="margin: 0 auto;"><button onclick="next2()" type="button" id="resultButton1" class="my-button-quiz col-12 btn btn-primary col-4">К результатам</button></div>
     </div>
 
     <div class="row quiz-center my-container-quiz shadow p-3 mb-5 bg-body-tertiary" id="quiz-block3">
         <div id="sub-block3" class="row">
-            <div class="col-4 quiz-center" style="background-color: whitesmoke">
-                <p>Большинство опрошеных были студентами <span id="answ1"></span> обучающимеся на <span id="answ2"></span> по <span id="answ3"></span> форме обучения</p>
-            </div>
-            <div class="col-8">
+            <div class="col-12">
                 <div class="row col-12 sub-quiz-div" style="background-color: whitesmoke">
                     <div class="col-9">
                         Плохо работающая система переселения
@@ -188,6 +189,11 @@
                         <input id="result7" class="form-control" type="text" value="100%" aria-label="" disabled readonly>
                     </div>
                 </div>
+                <div class="row col-12 sub-quiz-div" style="background-color: whitesmoke">
+                    <div class="col-12">
+                        <p>Большинство опрошеных были студентами <span id="answ1"></span> обучающимеся на <span id="answ2"></span> по <span id="answ3"></span> форме обучения</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -213,9 +219,6 @@
             document.getElementById('quiz-block3').style.display = 'none';
         }
         function next2(){
-            document.getElementById('quiz-block1').style.display = 'none';
-            document.getElementById('quiz-block2').style.display = 'none';
-            document.getElementById('quiz-block3').style.display = 'block';
             get_result()
         }
     </script>
